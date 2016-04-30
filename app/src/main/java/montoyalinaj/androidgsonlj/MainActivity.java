@@ -13,6 +13,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends ActionBarActivity {
 
+    TextView lista;
     TextView salida;
 
     @Override
@@ -20,18 +21,24 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        lista = (TextView) findViewById(R.id.lista);
         salida = (TextView) findViewById(R.id.salida);
 
         Gson gson = new Gson();
 
-        ArrayList<String> lista = new ArrayList<>();
+        ArrayList<String> arrayList = new ArrayList<>();
 
-        lista.add("Lina");
-        lista.add("Jose");
-        lista.add("Daniel");
+        arrayList.add("Lina");
+        arrayList.add("Jose");
+        arrayList.add("Viviana");
+        arrayList.add("Daniel");
+        arrayList.add("Vilma");
+        arrayList.add("Ximena");
 
-        String json = gson.toJson(lista);
 
+        String json = gson.toJson(arrayList);
+
+        lista.setText(arrayList.toString());
         salida.setText(json);
     }
 
